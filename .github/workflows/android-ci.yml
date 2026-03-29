@@ -33,7 +33,7 @@ jobs:
         if: always()
         with:
           name: jacoco-coverage-report
-          path: app/build/reports/jacoco/testDebugUnitTestReport/html/
+          path: app/build/reports/jacoco/jacoboTestReport/html/
           retention-days: 7
 
       - name: Upload JaCoCo Execution Data (for advanced tools)
