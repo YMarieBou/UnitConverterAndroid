@@ -12,14 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4   # v4 is still the latest stable as of now
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: gradle
+        uses: actions/setup-java@v4   # Keep v4 for now (v5 exists but v4 is very stable)
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -28,8 +24,8 @@ jobs:
         run: ./gradlew testDebugUnitTest jacocoTestReport --stacktrace
 
       - name: Upload JaCoCo Coverage Report
-        if: always()                     # Upload even if some tests fail
-        uses: actions/upload-artifact@v4
+        if: always()
+        uses: actions/upload-artifact@v4   # Keep v4 for maximum compatibility
         with:
           name: jacoco-coverage-report
           path: |
